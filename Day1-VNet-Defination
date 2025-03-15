@@ -1,0 +1,32 @@
+Azure Networking Study Plan (Day-wise)
+Day 1-2: Azure Virtual Network (VNet) Basics
+•	Understand VNet concepts: Subnets, Address Spaces, CIDR Notation
+•	Create a VNet with multiple subnets via Azure Portal
+•	Cost analysis of VNet setup
+•	Create the same VNet using Azure CLI
+•	Implement VNet using Terraform
+•	Practice: Deploy a VNet and test connectivity between subnets
+
+Defination Created by me.
+
+✅ Virtual Network (VNet):
+VNet is an Azure service that offers a private cloud inside the Azure environment.
+
+✅ CIDR Notation:
+When we create a VNet, we need to define a specific range of IPs according to the infrastructure needed. Based on that, CIDR assigns a number of IPs to our VNet.
+
+✅ Subnet:
+Inside our VNet, we define multiple subnets. A subnet is basically a classification of IPs into smaller parts. For example, if we create a microservices-based application, we can create one subnet for the backend, another for the frontend, and another for databases. This helps in smooth deployment and easy identification.
+
+Refine Defination:
+
+✅ Virtual Network (VNet):
+An Azure Virtual Network (VNet) is a logically isolated network within Azure's cloud environment that enables secure communication between Azure resources. It functions similarly to a traditional on-premises network but within Azure, allowing for subnet segmentation, private IP allocation, and network security control.
+
+✅ CIDR Notation:
+CIDR (Classless Inter-Domain Routing) notation is used to define IP address ranges for a VNet. When creating a VNet, we specify a CIDR block (e.g., 10.0.0.0/16), which determines the total number of available IP addresses. Azure reserves a few IPs for internal operations, and the remaining are used for resources within the VNet.
+
+✅ Subnet:
+A subnet is a logical partition of a VNet that helps segment the IP address space into smaller, more manageable networks. Each subnet can host different resources based on workload segregation, such as backend services, frontend applications, databases, or security appliances. This segmentation improves network organization, security, and traffic control.
+
+
