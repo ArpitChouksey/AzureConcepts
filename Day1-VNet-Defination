@@ -29,4 +29,471 @@ CIDR (Classless Inter-Domain Routing) notation is used to define IP address rang
 ✅ Subnet:
 A subnet is a logical partition of a VNet that helps segment the IP address space into smaller, more manageable networks. Each subnet can host different resources based on workload segregation, such as backend services, frontend applications, databases, or security appliances. This segmentation improves network organization, security, and traffic control.
 
+*****************
+
+✅ Hands-on: Azure Virtual Network (VNet) with Multiple Subnets + IP Assignments + Routes + Cost Estimation
+
+## ✅ Hands-on: Azure Virtual Network (VNet) with Multiple Subnets + IP Assignments + Routes + Cost Estimation
+
+### 📌 **Step 1: Create a VNet with Multiple Subnets**
+
+1. **Login to Azure Portal:**
+   - Go to [Azure Portal](https://portal.azure.com).
+   - Select **Create a resource** → **Networking** → **Virtual Network**.
+   
+2. **Basics Tab:**
+   - Subscription: Select your Azure subscription.
+   - Resource group: Create or choose an existing resource group.
+   - VNet Name: `VNet-MultiSubnet-Demo`
+   - Region: Select a region (e.g., East US).
+
+3. **IP Addresses Tab:**
+   - CIDR: `10.1.0.0/16` (65,536 IPs).
+   - Add multiple subnets:
+      - **Subnet 1:** Frontend → CIDR: `10.1.1.0/24`
+      - **Subnet 2:** Backend → CIDR: `10.1.2.0/24`
+      - **Subnet 3:** Database → CIDR: `10.1.3.0/24`
+
+4. **Security Tab:**
+   - BastionHost: Enable Azure Bastion for secure RDP/SSH access.
+   - DDoS protection: Standard (optional for extra security).
+   - Firewall: Disabled for now.
+
+5. **Tags Tab:** (Optional)
+   - Add relevant tags like `Environment: Test` or `Department: DevOps`.
+
+6. **Review + Create:**
+   - Validate the configuration.
+   - Click **Create**.
+
+---
+
+### 📌 **Step 2: Create VMs and Assign Public/Private IPs**
+
+1. **Create VMs:**
+   - Go to **Azure Portal → Virtual Machines → Create VM**.
+   - Create 3 VMs with the following configurations:
+
+**Frontend VM:**
+   - Name: `Frontend-VM`
+   - Region: Same as VNet region
+   - Image: Ubuntu 20.04 or Windows Server
+   - Size: Standard B2s
+   - VNet: `VNet-MultiSubnet-Demo`
+   - Subnet: `Frontend`
+   - Public IP: Enabled
+   - NIC NSG: Basic
+   - Inbound ports: SSH or RDP
+
+**Backend VM:**
+   - Name: `Backend-VM`
+   - Same region and size as Frontend VM
+   - VNet: `VNet-MultiSubnet-Demo`
+   - Subnet: `Backend`
+   - Public IP: Disabled (private only)
+   - NIC NSG: Basic
+
+**Database VM:**
+   - Name: `Database-VM`
+   - Same region and size
+   - VNet: `VNet-MultiSubnet-Demo`
+   - Subnet: `Database`
+   - Public IP: Disabled (private only)
+   - NIC NSG: Basic
+
+2. **Validate IP Assignments:**
+   - Go to **Networking tab** in VM details.
+   - Verify that the Frontend VM has a public and private IP.
+   - Backend and Database VMs should have only private IPs.
+
+---
+
+### 📌 **Step 3: Configure Routes and UDR (User Defined Routes)**
+
+1. **Create a Network Virtual Appliance (NVA):**
+   - Go to **Azure Portal → Create a VM**.
+   - Name: `NVA-VM`
+   - Region: Same as VNet region
+   - VNet: `VNet-MultiSubnet-Demo`
+   - Subnet: `Backend`
+   - Public IP: Enabled
+
+2. **Create Route Table:**
+   - Go to **Azure Portal → Route Tables → Create**.
+   - Name: `UDR-Route-Table`
+   - Region: Same as VNet region
+   - Associate to Subnet: `Backend`
+
+3. **Define Custom Route:**
+   - Select the Route Table → **Routes → Add**
+   - Route Name: `Backend-to-Frontend`
+   - Address Prefix: `10.1.1.0/24`
+   - Next hop type: `Virtual Appliance`
+   - Next hop address: NVA’s private IP
+
+---
+
+### 📌 **Step 4: Cost Estimation of VNet and Resources**
+
+1. **Go to Azure Pricing Calculator:**
+   - [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/)
+
+2. **Add Resources:**
+   - Virtual Network
+   - 3 VMs (Frontend, Backend, Database)
+   - Azure Bastion
+   - Network Virtual Appliance
+   - Route Table
+
+3. **Estimate Costs:**
+   - For a basic setup:
+      - **VNet:** ~$0.01 per hour
+      - **VMs:** ~$20-50 per month (each)
+      - **Bastion:** ~$140 per month
+      - **UDR:** No extra cost
+
+---
+
+### ✅ **Final Validation & Testing:**
+
+1. **Ping Between VMs:**
+   - SSH/RDP into Frontend VM.
+   - Test connectivity to Backend and Database VMs using their private IPs.
+     ```bash
+     ping 10.1.2.4  # Backend VM
+     ping 10.1.3.4  # Database VM
+     ```
+
+2. **Validate Route Table:**
+   - Go to **Azure Portal → Backend VM → Effective Routes**.
+   - Verify that traffic routes through the NVA.
+
+3. **Check Costs:**
+   - Go to **Azure Portal → Cost Management + Billing**.
+   - View estimated costs.
+
+---
+
+AZ CLI:
+
+## ✅ Azure CLI Commands: Azure Virtual Network (VNet) with Multiple Subnets + IP Assignments + Routes + Cost Estimation
+
+### 💡 **Step 1: Variables and Resource Group Creation**
+➡️ Define variables to simplify the commands.
+
+```bash
+# Define variables
+RESOURCE_GROUP="VNet-RG"
+LOCATION="eastus"
+VNET_NAME="MyVNet"
+SUBNET1_NAME="BackendSubnet"
+SUBNET2_NAME="FrontendSubnet"
+ADDRESS_SPACE="10.1.0.0/16"
+SUBNET1_PREFIX="10.1.1.0/24"
+SUBNET2_PREFIX="10.1.2.0/24"
+PUBLIC_IP_NAME="MyPublicIP"
+PRIVATE_IP_NAME="MyPrivateIP"
+NIC1_NAME="BackendNIC"
+NIC2_NAME="FrontendNIC"
+ROUTE_TABLE_NAME="CustomRouteTable"
+ROUTE_NAME="CustomRoute"
+
+# Create the resource group
+az group create --name $RESOURCE_GROUP --location $LOCATION
+```
+
+---
+
+### 🔥 **Step 2: Create the VNet and Subnets**
+➡️ Create the VNet with **multiple subnets**.
+
+```bash
+# Create the VNet with address space
+az network vnet create \
+    --name $VNET_NAME \
+    --resource-group $RESOURCE_GROUP \
+    --location $LOCATION \
+    --address-prefix $ADDRESS_SPACE
+
+# Create Backend Subnet
+az network vnet subnet create \
+    --resource-group $RESOURCE_GROUP \
+    --vnet-name $VNET_NAME \
+    --name $SUBNET1_NAME \
+    --address-prefixes $SUBNET1_PREFIX
+
+# Create Frontend Subnet
+az network vnet subnet create \
+    --resource-group $RESOURCE_GROUP \
+    --vnet-name $VNET_NAME \
+    --name $SUBNET2_NAME \
+    --address-prefixes $SUBNET2_PREFIX
+```
+
+✅ **Verification:**  
+```bash
+az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --output table
+az network vnet subnet list --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --output table
+```
+
+---
+
+### 🌐 **Step 3: Create Public and Private IPs**
+➡️ Assign **Public IP** to the frontend and **Private IP** to the backend resources.
+
+```bash
+# Create Public IP for Frontend
+az network public-ip create \
+    --name $PUBLIC_IP_NAME \
+    --resource-group $RESOURCE_GROUP \
+    --location $LOCATION \
+    --sku Standard \
+    --allocation-method Static
+
+# Create Network Interface with Private IP for Backend
+az network nic create \
+    --resource-group $RESOURCE_GROUP \
+    --name $NIC1_NAME \
+    --vnet-name $VNET_NAME \
+    --subnet $SUBNET1_NAME \
+    --private-ip-address "10.1.1.10"
+
+# Create Network Interface with Public IP for Frontend
+az network nic create \
+    --resource-group $RESOURCE_GROUP \
+    --name $NIC2_NAME \
+    --vnet-name $VNET_NAME \
+    --subnet $SUBNET2_NAME \
+    --public-ip-address $PUBLIC_IP_NAME
+```
+
+✅ **Verification:**  
+```bash
+az network public-ip list --resource-group $RESOURCE_GROUP --output table
+az network nic list --resource-group $RESOURCE_GROUP --output table
+```
+
+---
+
+### 🚦 **Step 4: Create a Custom Route Table and Add a Route**
+➡️ Add a **User Defined Route (UDR)** to control the traffic flow.
+
+```bash
+# Create Route Table
+az network route-table create \
+    --resource-group $RESOURCE_GROUP \
+    --name $ROUTE_TABLE_NAME \
+    --location $LOCATION
+
+# Create Custom Route
+az network route-table route create \
+    --resource-group $RESOURCE_GROUP \
+    --route-table-name $ROUTE_TABLE_NAME \
+    --name $ROUTE_NAME \
+    --address-prefix "0.0.0.0/0" \
+    --next-hop-type Internet
+```
+
+➡️ **Associate the Route Table with Subnets**
+```bash
+az network vnet subnet update \
+    --resource-group $RESOURCE_GROUP \
+    --vnet-name $VNET_NAME \
+    --name $SUBNET1_NAME \
+    --route-table $ROUTE_TABLE_NAME
+
+az network vnet subnet update \
+    --resource-group $RESOURCE_GROUP \
+    --vnet-name $VNET_NAME \
+    --name $SUBNET2_NAME \
+    --route-table $ROUTE_TABLE_NAME
+```
+
+✅ **Verification:**  
+```bash
+az network route-table show --resource-group $RESOURCE_GROUP --name $ROUTE_TABLE_NAME --output table
+```
+
+---
+
+### 💰 **Step 5: Cost Estimation**
+➡️ To **estimate the cost**, you can use the Azure Pricing Calculator or run the following commands:
+
+```bash
+# Estimate the price of your current resources
+az consumption usage list --resource-group $RESOURCE_GROUP --output table
+```
+
+Alternatively, you can export cost details:
+```bash
+az consumption usage list --resource-group $RESOURCE_GROUP --output json > cost_estimation.json
+```
+-----
+
+🚀 Terraform Script: Azure VNet with Multiple Subnets, IP Assignments, and Routes
+
+📁 Directory and File Setup
+
+Create a directory and initialize Terraform:
+
+mkdir azure-vnet-terraform
+cd azure-vnet-terraform
+touch main.tf variables.tf outputs.tf
+
+
+✅ Variables Definition (variables.tf)
+
+variable "resource_group_name" {
+  description = "Name of the resource group"
+  type        = string
+  default     = "VNet-RG"
+}
+
+variable "location" {
+  description = "Azure region"
+  type        = string
+  default     = "East US"
+}
+
+variable "vnet_name" {
+  description = "Virtual Network Name"
+  type        = string
+  default     = "MyVNet"
+}
+
+variable "subnet1_name" {
+  description = "Subnet 1 Name"
+  type        = string
+  default     = "BackendSubnet"
+}
+
+variable "subnet2_name" {
+  description = "Subnet 2 Name"
+  type        = string
+  default     = "FrontendSubnet"
+}
+
+variable "address_space" {
+  description = "VNet Address Space"
+  type        = list(string)
+  default     = ["10.0.0.0/16"]
+}
+
+variable "subnet1_prefix" {
+  description = "Subnet 1 CIDR"
+  type        = list(string)
+  default     = ["10.0.1.0/24"]
+}
+
+variable "subnet2_prefix" {
+  description = "Subnet 2 CIDR"
+  type        = list(string)
+  default     = ["10.0.2.0/24"]
+}
+
+
+✅ Main Configuration (main.tf)
+
+# Create Resource Group
+resource "azurerm_resource_group" "rg" {
+  name     = var.resource_group_name
+  location = var.location
+}
+
+# Create Virtual Network
+resource "azurerm_virtual_network" "vnet" {
+  name                = var.vnet_name
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  address_space       = var.address_space
+}
+
+# Create Backend Subnet
+resource "azurerm_subnet" "subnet1" {
+  name                 = var.subnet1_name
+  resource_group_name  = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = var.subnet1_prefix
+}
+
+# Create Frontend Subnet
+resource "azurerm_subnet" "subnet2" {
+  name                 = var.subnet2_name
+  resource_group_name  = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = var.subnet2_prefix
+}
+
+# Public IP for VM1
+resource "azurerm_public_ip" "pip1" {
+  name                = "vm1-pip"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  allocation_method   = "Dynamic"
+}
+
+# Public IP for VM2
+resource "azurerm_public_ip" "pip2" {
+  name                = "vm2-pip"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  allocation_method   = "Dynamic"
+}
+
+# Route Table
+resource "azurerm_route_table" "route" {
+  name                          = "myRouteTable"
+  location                      = azurerm_resource_group.rg.location
+  resource_group_name           = azurerm_resource_group.rg.name
+}
+
+# Add a custom route
+resource "azurerm_route" "route1" {
+  name                   = "customRoute"
+  resource_group_name    = azurerm_resource_group.rg.name
+  route_table_name       = azurerm_route_table.route.name
+  address_prefix         = "0.0.0.0/0"
+  next_hop_type          = "VirtualNetworkGateway"
+}
+
+
+✅ Output Values (outputs.tf)
+
+output "vnet_name" {
+  value = azurerm_virtual_network.vnet.name
+}
+
+output "subnet1_name" {
+  value = azurerm_subnet.subnet1.name
+}
+
+output "subnet2_name" {
+  value = azurerm_subnet.subnet2.name
+}
+
+output "public_ip_vm1" {
+  value = azurerm_public_ip.pip1.ip_address
+}
+
+output "public_ip_vm2" {
+  value = azurerm_public_ip.pip2.ip_address
+}
+
+
+
+⚙️ Terraform Commands to Deploy
+
+Initialize Terraform
+
+Validate the Configuration
+
+Plan the Deployment
+
+Apply the Changes
+
+Destroy the Resources (Optional)
+
+
+
+
 
