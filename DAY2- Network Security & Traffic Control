@@ -1,0 +1,179 @@
+✅ 1. Network Security Groups (NSG)
+📌 What is NSG?
+
+NSG is a firewall-like feature that controls inbound and outbound traffic to/from Azure resources.
+It uses rules to allow or deny traffic based on:
+Source (IP, range, or tag)
+Destination (IP, range, or tag)
+Protocol (TCP, UDP, ICMP)
+Port Range
+Action (Allow/Deny)
+You can associate NSGs with:
+Subnets
+Network Interfaces (NICs)
+✅ 2. NSG Rules and Priorities
+📌 NSG rules control traffic flow and have the following characteristics:
+
+Default Rules:
+Automatically created by Azure (cannot be deleted).
+Examples:
+Allow VNet-Inbound → Allows communication between resources in the same VNet.
+Allow Azure Load Balancer-Inbound → Allows health probes from Azure load balancers.
+Deny All-Inbound and Outbound → Blocks all traffic not explicitly allowed.
+Custom Rules:
+Created by users.
+Define specific allow/deny rules.
+Rules are evaluated in order of priority (lower numbers = higher priority).
+✅ Rule evaluation logic:
+
+Lowest priority number is evaluated first.
+If traffic matches a rule, subsequent rules are ignored.
+✅ 3. Application Security Groups (ASG)
+📌 What is ASG?
+
+ASG allows you to group VMs or NICs into logical groups.
+Benefits over NSG:
+Simplifies management of complex environments.
+You don’t need to reference specific IPs – use ASG instead.
+Easier to scale: Add/remove VMs from ASG without modifying NSG rules.
+✅ Use Case Example:
+
+Create Web-ASG, App-ASG, and DB-ASG.
+Allow only web servers to talk to app servers and only app servers to talk to the database.
+This improves segmentation and security without managing individual IPs.
+✅ 4. DDoS Protection
+📌 What is DDoS Protection?
+
+DDoS (Distributed Denial-of-Service) protection secures Azure resources from large-scale attacks.
+Azure offers:
+Basic (Free) → Enabled by default.
+Standard (Paid) → Advanced protection with monitoring, mitigation, and alerts.
+✅ Key Differences:
+
+Feature	Basic	Standard
+Protection Scope	Default protection	Advanced protection
+Mitigation	Automatic	Custom policy mitigation
+Traffic Analytics	None	Yes
+Alerts	No	Yes
+Cost	Free	Billable
+✅ 5. Hands-on: NSG & ASG in Azure Portal + CLI
+🔥 Part 1: Create NSG and Associate with Subnets
+🛠️ Steps via Azure Portal:
+Go to Azure Portal → Networking → Network Security Groups
+Click + Create
+Enter the details:
+NSG Name: MyNSG
+Region: Same as your VNet
+Resource Group: Use the same one as your VNet
+Click Review + Create → Create
+✅ Add Inbound Rule:
+Go to Inbound Security Rules → + Add
+Configure the rule:
+Name: Allow-SSH
+Priority: 100
+Source: Any
+Destination: Any
+Protocol: TCP
+Port range: 22
+Action: Allow
+Click Add
+✅ Associate NSG with Subnet:
+Go to Settings → Subnets → Associate
+Select the VNet and subnet
+Click Save
+🔥 Part 2: Create ASG and Associate with VMs
+🛠️ Steps via Azure Portal:
+Go to Azure Portal → Networking → Application Security Groups
+Click + Create
+Enter the details:
+ASG Name: Web-ASG
+Region: Same as your VNet
+Resource Group: Use the same one
+Click Review + Create → Create
+✅ Assign ASG to a VM:
+Go to Virtual Machines → Select VM
+Click Networking
+Select + Configure ASG
+Select Web-ASG → Save
+✅ Final Result:
+
+You’ve created an NSG with rules and associated it with a subnet.
+You’ve created an ASG and linked it to a VM.
+✅ 6. Terraform: Deploy NSGs & ASGs via Infrastructure as Code
+🔥 Terraform Configuration:
+Create a directory for NSG & ASG:
+bash
+Copy
+Edit
+mkdir nsg-asg-terraform
+cd nsg-asg-terraform
+Create the main.tf file:
+bash
+Copy
+Edit
+nano main.tf
+Add the following configuration:
+hcl
+Copy
+Edit
+# Provider
+provider "azurerm" {
+  features {}
+}
+
+# NSG
+resource "azurerm_network_security_group" "nsg" {
+  name                = "MyNSG"
+  location            = "East US"
+  resource_group_name = "MyVNetRG"
+
+  security_rule {
+    name                       = "Allow-SSH"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+}
+
+# ASG
+resource "azurerm_application_security_group" "asg" {
+  name                = "Web-ASG"
+  location            = "East US"
+  resource_group_name = "MyVNetRG"
+}
+Initialize Terraform:
+bash
+Copy
+Edit
+terraform init
+Plan the Deployment:
+bash
+Copy
+Edit
+terraform plan
+Apply the Deployment:
+bash
+Copy
+Edit
+terraform apply
+✅ Output:
+
+NSG with rules and ASG will be created.
+Verify in Azure Portal.
+✅ 7. Troubleshooting Common NSG Issues
+✅ 1. NSG Rules Not Working:
+
+Check Rule Priorities: Lower number = higher priority.
+Check Effective Security Rules:
+Go to VM → Networking → Effective Security Rules to view applied rules.
+✅ 2. Ping/SSH Still Blocked:
+
+Make sure you allowed the required ports (e.g., 22, 3389, 80, etc.).
+✅ 3. NSG Association Issues:
+
+Ensure the NSG is properly associated with the Subnet or NIC.
