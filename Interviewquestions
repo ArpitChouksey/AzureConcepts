@@ -28,3 +28,4 @@ MEESHO:
 16) Which web server you used by configure LB.
 17) How trigger HPA in cloud.
 18) Nat GW and directly expose in internet what was the diffrence in that part.
+19) Does nat gw is take inbond and outbond traffic.
