@@ -1,0 +1,30 @@
+INTERVIEW:
+
+MEESHO:
+
+1) How you increased disk volume if volume disk got full.
+2) Diff bet NACL AND SUBNET.
+3) How you set up https communication what step should needed.
+4) Deep Down promethus:
+
+		* How you manupulate metrices (Changes log pattern).
+		* How we can create dashboard in graphna.
+		* Did you set up monitoring in prod. env.
+		* How to write promethus query.
+		* How to creat an alert.
+		* How k8s cluster know or fetch metrics.
+
+5) If i have two hosted zone so you to make sure dns has been reslove in both end what was the steps. (Target Group).
+6) If CPU memory is full so how you check what was the debug steps.
+7) Retrive secind and third element in array without sorting.
+8) Remove duplicate characted in an string.
+9) Whats was the LB type and its use cases.
+10) Did you do cloud migration from aws to gcp or any other.
+11) How to connect Vnet-vpc.
+12) How to implement retention policy.
+13) Network flow in k8s.
+14) How to set kibana, how fluented or other agent sent data to kibana.
+15) If backend server have latency so what step you take for debugging that.
+16) Which web server you used by configure LB.
+17) How trigger HPA in cloud.
+18) Nat GW and directly expose in internet what was the diffrence in that part.
