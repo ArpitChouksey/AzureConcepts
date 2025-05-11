@@ -29,3 +29,32 @@ MEESHO:
 17) How trigger HPA in cloud.
 18) Nat GW and directly expose in internet what was the diffrence in that part.
 19) Does nat gw is take inbond and outbond traffic.
+
+Techdome:
+
+1st Round: Techdrome: Cleared:
+
+1) What you are use for Apigateway what is your role.
+2) What was the strategy you used for taking db backup, and how you migrate db open-src to Azure DB.
+3) Create Infra for 3 tier application with all security aspect.
+4) How you manage traffic from frontend to backend for 10000 req.
+5) What is Application gw in azure.
+6) Fault tolerate
+7) Key usage for multistage docker file in prod.
+8) I create Docker file and on first line i return RUN api-update and second line i wirte RUN api-install nginx so does that is good apporch or bad.
+9) Types of Network in Docker Image.
+10) What is CSI (Container storage interface)
+11) Taints & toleration in k8s.
+12) Service as a LB & Ingress diffrence.
+13) In k8s how to give access for NS.
+14) Only user can access the log level.
+15) How do we manage statefile.
+16) Terraform WorkSpace.
+17) Provisoner in Terraform.
+18) Do you use script.
+19) In linux what is LBS (Logical volume mount)
+20) For Monitoring which tool you used.
+21) Which pipeline tools you have used.
+22) Did you work with WAF.
+23) Share your screen and write down the k8s menifest file.
+24) If my container got start after 2 min i didnt want my container run so what can i do.
