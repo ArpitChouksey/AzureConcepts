@@ -58,3 +58,40 @@ Techdome:
 22) Did you work with WAF.
 23) Share your screen and write down the k8s menifest file.
 24) If my container got start after 2 min i didnt want my container run so what can i do.
+
+Techdrome Final round:
+
+1) What was your career objective and what you do for DevOps part.
+2) What is your long term goal.
+3) How Monitoring tools differ and tell me how we say that this is good tool.
+4) New Relic Cost.
+5) Open src alternate for new relic.
+6) Does graphana, kibana and promethus are open src.
+7) If we have outage how you can handel situation.
+8) what is an zero trust env.
+9) Security practices for devops not technology based core pratices only what we do.
+10) penitration testing and penitration testing tools have you done before.
+11) What is Terraform.
+12) Write Terraform file, what was the first step you do for terraform.
+13) Where you store in state file.
+14) How you handels different env. in terraform.
+15) How do you handel key vault usage in you team.
+16) How to store and share secret.
+17) How do you manage your day to day task.
+
+CITI BANK: SRE Role & Automation:
+
+1) What excite to work on this job.
+2) Whats was your techncal strength.
+3) what is your knowledge on graphana.
+4) What are the diffrent SRE Stream you working on.
+5) Technical walk through for automation and what tool are you using.
+6) I need to generate automate report for every 4 hour that data should be extracte and share it in excel spread sheet attached to an email and share with team. (How do you convert data in spread sheet).
+7) Structure logs and Structure logs.
+8) How to you build Azure monitoring or AWS monitoring in graphana.
+9) What data you extracting data from promethus.
+10) WAF Log forwarding data.
+11) I have a UI every day team go and logs in perfrom i funtion like restart application and check box say okay and then they go to database and run some query how do you automate this flow, what was your suggesation.
+12) What is the three pillers of obsevability.
+13) What are different data point in you opinion for creating a dashboard.
+14) You are working with this company only 1 year why are you looking for a change. (No scope for growth).
