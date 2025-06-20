@@ -178,3 +178,28 @@ How do you monitor redis.
 Looking for somebody who is good on scripting.
 
 
+GoldMens Sach:
+
+
+Have you intrigrate CI/CD Pipeline, What all the stages.
+have you configure sonal qube for diffrent project.
+what are metirices you capture in sonar qube.
+is that 80% configure hardcoded for all project.
+i have less than 80% code coverage so does pipeline got failed?
+where did you provide a flag that stage is skip.
+their are two project so in one project we need to skip and other project need to allow.
+how this docker and k8s are diffrent.
+what was the use of ingress and why we dont use LB.
+did you ever face to deal with cred. in pipeline, service token or something like that.
+one of the pods is not coming up so how you trouble shoot and due to this one pods so does pipeline got fail, how you handel this?
+how do youb handle rolback.
+you managed infra and what was the endpoint you used here & time here and how you optimized it 40%.
+how do you reduce build faliure and reduce 40% of build falire.
+how do you reduce deployment by 50%: progress line no. 3rd.
+how do you reslove more that 80% alert.
+String : "apple" count non repeating words in min. time complex.
+What was the production issue are you face in your exp.
+when you run ls -lrth cmd inside login in your vm but is their any way without logging you can run the cmd
+If some file is missing so how you create some logging or something without logging how you slove this problem.
+
+
