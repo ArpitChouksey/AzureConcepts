@@ -95,3 +95,42 @@ CITI BANK: SRE Role & Automation:
 12) What is the three pillers of obsevability.
 13) What are different data point in you opinion for creating a dashboard.
 14) You are working with this company only 1 year why are you looking for a change. (No scope for growth).
+
+IVY SRE3: Cleared:
+
+1) Tell me about yourself:
+2) what was are problem you are solving and share imp criteria and what you enjoy that part what was the problem.
+3) Diffrence between apigateway and LB.
+4) when we used ansible, terraform or automox whatever.
+5) Can we peovision infra with automox or ansible.
+6) Scripting is same in automox.
+7) One team is going to cloud first time, helm k8s everything is done, their is an rest endpoint very simple website:
+	A) what should LB they choose and why?
+	B) how should they choice network lb and application lb any criteria?
+	C) how should they choose which service type in k8s.
+	D) Where we store a secret.
+	E) The app is crashing, min. no. of pods is required, helm install got failed, what is the first thing you can check, you run k8s get pods and pods going to crashloopback   how you can debug.
+	F) now pods is deploy apis call work, now you run curl req. and apis give timeout that was an external call what was your approch.
+	G) Even before we deploy, we need to check security, they give blank VPC, so what was the security we need to configure how we design flow.
+	H) How to make application fault tolarance and HA .. for database and other svc ... and when should we choose we go with managed service or open src.
+	I) After deployment how we monitor service .. rest service any endpoint any unwanted call what we do.
+	J) We need to design a single cost efficient logging, why choose mange open src.
+	K) how the logs flow end to end design, push-pull logging, file system, how to fetch diffrent logs, how many data pattern data view. 	 
+	L) how agent do a pulling.
+	M) should the application container directly push the log or we need to do some modification.
+	N) now we need to provide Error budget, SLO, SLI, SLA how should handle that approch and billing part.
+	O) How we do error budgeting.
+	P) we are giving docker file now what was the best practice look for docker file.
+	Q) what was the bad practice for docker file.
+	R) when we used telnet, and what was other cmd for debugging, and what protocol used by this cmds.
+
+Gaming Creation:	
+RNG: no. of generator, websocket, packet performance, TCP LB, Stickness for hitting same conn., unique no. random no., distributed service that should not overlapping.
+Trading, NQGT protocol
+
+
+Design System, Cost Budget.
+
+
+
+
