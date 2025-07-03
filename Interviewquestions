@@ -219,4 +219,33 @@ What was the production issue are you face in your exp.
 when you run ls -lrth cmd inside login in your vm but is their any way without logging you can run the cmd
 If some file is missing so how you create some logging or something without logging how you slove this problem.
 
+PayTM Second Round:
+
+Tell ME about yourself.
+Whats your Day to day task.
+which k8s are you use.
+how worker node communicate with slave node.
+how to do worker node auto-scaling, and which tool or tech you used.
+if you want to dettached worker node on the cluster how can we do that.
+how external traffic enter into the cluster.
+for deployment which ci/cd tools you used.
+what was stages are their.
+how you do canary deployment in argo cd
+have you return helm chart
+why need to define req cpu and req memory.
+what will happend if they reveived their full memory, what will happend to the pods.
+why you liveness and readiness probe.
+are you using terraform, what is workspace in terraform.
+what is state file.
+what will happend if we lost state file.
+why we used module.
+can you write how we define module for ec2.
+how many types for connectivity in aws.
+have you used prometheus, graphna.
+how promethus work.
+for logging point of view which part you used.
+have you used elastic search.
+
+
+
 
