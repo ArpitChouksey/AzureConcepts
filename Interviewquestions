@@ -246,6 +246,42 @@ how promethus work.
 for logging point of view which part you used.
 have you used elastic search.
 
+Ecosmobility: Mohali
+
+1)  Introduce yourself.
+2)  What is your current role, and how many members in your team.
+3)  You have exp. in all of the cloud, what is your exp. all of the cloud.
+4)  In azure what tools do you used till now.
+5)  Do you know what was the responsibility for devops.
+6)  What is the diff. bet CI & CD.
+7)  What is the concept of gitops.
+8)  BitBucket i push my code to bitbucket so does they deploy my code in k8s.
+9)  What git tools you have used.
+10) Can you tell me 2 big diff. bet. bitbucket, git, gitlab or any other git.
+11) Why we consider jenkins as compare to others.
+12) Have you done intrigration bet. jenkins to k8s.
+13) What is the helm and why we used helm.
+14) diffrence between yum and helm and similarity.
+15) How can you design secure infra. with best security practices.
+16) How can you ensure HA and DR.
+17) How you manage the database and how you take replication.
+18) As a SRE you need to take care of which thing.
+19) what SLO you will consider.
+20) My Azure billing going high, so how we can reduce cost.
+21) You have a team for more than 30 people, how we can secure the credentials how to manage keep everything secure.
+22) Being a devops you familar with CI/CD what tools you work on ... suppose their is a pipeline which is taking 40-45 min for deployment so would you have any suggesation to reduce a time.
+23) why we consider trraform and  anisible what was the use cases.
+24) developer team write a code you need to check quality of the code how you can make sure.
+25) how can you check code coverage, what sonar get function.
+26) when i should i used reverse proxy and proxy.
+27) does apart of http or https traffic we can route traffic in other port.
+28) I can use LB why we used revese proxy.
+29) how many types of deployment stre. in k8s.
+30) what is canary and green/blue deployment.
+31) If i need to change service and that service running in prod env. so how you can proceed. 
+32) where we can devide weightage.
+
+
 
 
 
