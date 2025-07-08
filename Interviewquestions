@@ -283,5 +283,38 @@ Ecosmobility: Mohali
 
 
 
-
+Rakuten:
+Write a shell script where passowrd should be 8 character and alpha numeric need to validate that.
+how we can check the free disk: df -h (what is h stand of it).
+How we can change the password of linux user.
+What is build contex in docker.
+what is layer in docker image.
+how i can redunce the size of an images.
+what is a distroless image.
+what is user in docker file.
+by default which network docker used.
+how many type of docker network are their.
+diffrence between bridge and overlay network.
+suppose their are 4 worker node and u create a 5 pods i created deployment and set replica 5 and i am using bridge network so how communication established their.
+write a docker file.
+What the use for workdir.
+copy vs add.
+how i can mount my host machine path to container.
+3 vms i have attached disk from one vm and how i can attached it with other.
+how ww mount something 
+disk is mount with device and i want to mount with other path how we can do.
+how schuduler will work.
+what kind of creteria schduler check.
+what is noschedule.
+nodeaffinity and nodeselector.
+how we can apply nodeaffinity.
+readiness vs liveness probe.
+how we can connect acr.
+replica set vs deployment.
+how to apply helm chart.
+how i can keep the history nd how i can preserve history.
+helm unintall --perserve 
+what is CRD
+what is ingress.
+how we will do the authentication not authrorization
 
