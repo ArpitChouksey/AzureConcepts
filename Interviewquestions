@@ -318,3 +318,46 @@ what is CRD
 what is ingress.
 how we will do the authentication not authrorization
 
+ONIT:
+
+1)  Introduce yourself.
+2)  Have you work on system design part.
+3)  Suppose i want to create HA Infra.
+4)  With k8s suppose the pods is not their but deployment are their why it is.
+5)  How would you configure healthcheck on pod yaml.
+6)  Diff bet liveness and readiness.
+7)  what happens if both of them is fail.
+8)  Have you working on SLO define in your office.
+9)  Can you share some senerio for SLO.
+10) Who handel the incident.
+11) Are you working on create a RCA and what was the standard of an RCA.
+12) You have a SLO of 99.5 so is thier any dashboard by which we can monitor it.
+13) I am getting lot of incident i need to reduce MTTR, so what you do.
+14) do you have exp. on db.
+15) your primary pods getting down so what you do.
+16) your req. has been stuck and mysql getting high cpu what you do in that case.
+17) one user have n no. of high con. so how you can kill query and reduce conn.
+18) how you set-up horizontal scaling for mysql.
+19) have you work with slow query, long running query.
+20) statefull vs deployment including pvc.
+21) best practices for writing deployment yaml.
+22) what are pods distruption budget.
+23) how do you set-up logging on k8s pods.
+24) you are shipping a logs in elastic but that data is not shipping what you do.
+25) ping vs nc -v vs telnet vs curl vs wget.
+26) what 502, 5xx and 4xx.
+27) what service is running in linux how you check.
+28) how you get process id.
+29) type of services in k8s and what was the use of it.
+30) where is the ip attached for cluster ip.
+31) what is the diff. bet. application and network lb.
+32) diff between a NAT GW and internet gw.
+33) do you know the working of NAT GW.
+34) How do you storing secret.
+35) Can you tell me about CI/CD pipeline what you done.
+36) which os are you using right now.
+37) You need to write script where need to find the disk usage and if disk utlization is high so it sent email.
+ 
+
+
+
