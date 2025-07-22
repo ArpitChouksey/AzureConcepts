@@ -359,5 +359,47 @@ ONIT:
 37) You need to write script where need to find the disk usage and if disk utlization is high so it sent email.
  
 
+EXTRA:
 
+1) Your application on EC2 experiences traffic spikes only during business hours. How would you optimize cost and performance?
+2) Your EC2 instance crashed unexpectedly. What steps would you take to identify the issue and restore service quickly?
+3) You have deployed your app on EC2 instance. The app has to Fetch some images from internet but it's not able to fetch. What might be the possible issues ?
+4) You accidentally deleted data from S3. How do you recover it?
+5) How do you connect your on-premise data center to AWS?
+6) | have 2 EC2 Instance in 2 VPC one in each. First one is running frontend app and second is running backend. These 2 app needs to communicate but they're not able to communicate. How will you fix this ?
+7) I have an app running on EC2. Product icons are stored in S3 bucket which Needs to be shown on web home page. When my application is trying to fetch it's resulting into error. What might be the problem here ?
+10) how to distribute 10 pods equally over 10 nodes in Kubernetes?
+Like for log collecting metric beat, dynatrace agent etc
+11) I have an app running on pod in EKS. Now I want to fetch this application using rinkirathore.com from browser. What kind of setup will you do ?
+12) I have to create 10 identical EC2 Instances using Terraform.
+What approach will you follow?
+13) I have created a VPC manually. Now I have to create one EC2 instance using Terraform. How will you pass VPC id here in Terraform script?
+14) You have provisioned a VPC using Terraform and someone deleted it manually. Now if you run Terraform apply, how will your pipeline behave?
+15) | have 2 modules written one for VPC and second for EC2. EC2 modules need VPC id to provision. How will you ensure that EC2 module get VPC id at runtime?
+16) Explain the stages you have written in your Jenkins pipeline.
+17) I am trying to run one script file on my Linux server and getting permission error. How will you troubleshoot this ?
+18) Linux server is experiencing slow performance.
+How will you debug this slowness?
+
+Deloite:
+
+1) If you have to provisioned new envionment and where you store source code.
+2) If you define CI/CD and how you manage new client with same CI/CD.
+3) In US region you need to create other resources.
+4) If i have terraform code and i need to run only sigle or two module how i can do it.
+5) same code would be run in same env.
+6) have you set-up a cluster at starting.
+7) i have two svc and i want sva a to call svc b.
+8) i have single ns and svc is deploy on it so do i need apigatway or ingress or nginx what was the mandatory things.
+9) if i have multiple ns so what we do.
+10) can i have single ingress serving all the ns.
+11) and do i need to use multiple controller for diffrent ns.
+12) how many type of k8s svc.
+13) when do you which svc.
+14) Which all tools has been use for security vulnability and does that vulnability stage is not written in your pipeline.
+15) If i put image into the jfrog we need to pass jfrog cred also where you passed it.
+16) If you are using AKS how your image container pull the image.
+17) How can you used secret.
+18) If my cluster ingress proxy is configure and while i configure how i make sure traffic going to that particular proxy.
+19) in your current project define me the way.
 
