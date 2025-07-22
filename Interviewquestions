@@ -380,6 +380,14 @@ What approach will you follow?
 17) I am trying to run one script file on my Linux server and getting permission error. How will you troubleshoot this ?
 18) Linux server is experiencing slow performance.
 How will you debug this slowness?
+2) What are all backend services for Lambda?
+I have deployed a frontend app on AWS EC2 but this EC2 is very slow.
+How will you troubleshoot this ?
+How will you launch public EC2 instance? Explain step by step.
+How do you ensure that subnet is public or private?
+Suppose you're experiencing storage issue for your EC2.
+How will you troubleshoot this ?
+
 
 Deloite:
 
