@@ -411,3 +411,88 @@ Deloite:
 18) If my cluster ingress proxy is configure and while i configure how i make sure traffic going to that particular proxy.
 19) in your current project define me the way.
 
+EPAM:
+
+1) In terraform we want to build one vm, we need to pass vpc id subnet id via terraform we have all this id in azure so how we can get id without putting into statefile.
+2) What is provisoner.
+3) what is DRIFT.
+4) If any vm is deleted at run time via UI how you can deal with that situation.
+5) Did you used alias in terraform.
+6) How you can multiple environment in terraform.
+7) How you can create multiple vm with same config.
+8) suppose you have 10 module in which you need to update 7 module so how you can do.
+9) Did you know about life cycle in terraform.
+10) Do you know what is dynamic block.
+11) Do you know about local block or variable.
+
+12) What is CHOWN and CHMOD.
+13) Diffrence between softlink and hardlink.
+14) If you need to see last 10 logs how you can do it.
+15) without open you need to write some data into file.
+16) how you can memory and cpu.
+17) you need to fetch some particular field while using top like load average and how do you find load average.
+18) How to check disk utilization
+19) Do you know networking cmd.
+20) Data backup strategy.
+
+21) Which pipeline tools have you used so far.
+22) What is shared libraries.
+23) Let suppose you have two vms and some task is running and they need diffrennt package now how you can choose which pipeline run on which vm and how you can distributed this kind of things.
+24) How you can take backup for jenkins.
+25) Suppose in a single pipeline it have 3 stages and every stages will take more than 25 min how you can reduce this thing i want that stage run simultaneously.
+26) How you can used pipeline in production.
+27) How you can make sure that if pipeline got fail so it got rollback.
+
+28) What was the deployment strategy you flow to make sure no down time has been occured.
+29) What is sonarqube.
+30) Have you work any vulnability level.
+
+31) Let suppose you have multiple ips:
+Input:
+10.0.0.1
+10.0.0.1
+10.0.0.8
+10.0.0.9
+10.0.0.12
+10.0.0.8
+
+OutPut:
+2 10.0.0.1
+0 10.0.0.8
+..
+..
+
+Likewise count.
+
+32) You need to know what was the file size via shell how you can do.
+
+33) Let suppose their are three headers 
+PID CPU MEMORY
+
+you need to print MEMORY.
+
+34) what is shebang, do you about #! and all symbols which is used in shell.
+
+35) Let suppose you need to provide azure blob to some customer publically for 2 hour after that it will not share publically how you can do.
+36) Do you know about CDN, Azure Functions.
+
+37) If pods kills so what was exits code and how exits code denote the reason for showing pods state.
+38) How many probs are their in k8s.
+39) Statefullset vs replicaset.
+40) what is PDB.
+41) what is CSI container and if i delete PVC so does PV is also created.
+42) What is operator in k8s.
+43) What do you understand by Ingress.
+44) diffrence between k8s services, LB, Ingress.
+45) What is headless services in k8s.
+46) Do you know ISTIO and what is envoy proxy.
+47) Do you work with genAI.
+
+48) What are the azure services you have used.
+49) How you enable DDos.
+50) what is Azure Resource Manager.
+51) What is ExpressRoute.
+
+
+
+
