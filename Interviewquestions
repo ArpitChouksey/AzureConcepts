@@ -493,6 +493,38 @@ you need to print MEMORY.
 50) what is Azure Resource Manager.
 51) What is ExpressRoute.
 
+Kombee
+
+1) Design stages for java micro services.
+2) Deployment strategy 
+3) How do you used terraform in your env.
+4) write jenkins pipeline
+5) write terraform script for creating vm and database
+6) Migration docker compose to azure aks
+7) How do you configure azure front door
+8) Only in 4 region my app should be accessible but apart of that other region its restricted
+9) What was DR stretegy in AZURE in multiple region.
+10) How do you ensure HA for database.
+11) how do you setup monitoring.
+12) CPU utlization going in more than 90%
+13) k8s architecture
+14) replica vs sts
+15) how many type of HPA is their.
+16) How do you manage secret.
+17) How do you manage statefile.
+18) How do you create 3 tier application.
+
+Blue Younder
+
+1) Brief you exp.
+2) which vcs.
+3) how do you handel github.
+4) How do you handel merge conflict
+5) Have you used jenkins
+6) How to revert the images and if image got fail so how you handel it.
+7) Docker cmd
+8) how do you handel username and password in terraform.
+9) what are scripting language is work on.
 
 
 
