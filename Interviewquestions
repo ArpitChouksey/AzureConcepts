@@ -530,3 +530,44 @@ Blue Younder
 11) What is taints cmd in terraform.
 12) Supply chain industry, disney, walmart
 
+ED TECH. PUNE:
+
+1) Introduce yourself.
+2) Role you CI/CD.
+3) How you take the dump of mysql via script.
+4) How you manage secret in CI/CD.
+5) In CI/CD how you manage git, and how you merge that brance and how you handel it.
+6) How do you resolve merge conflict.
+7) how to check swap memory and cpu and memory.
+8) I want to host my application in aws.
+9) Why need to create multiple subnet.
+10) How to connect multiple vpc in aws.
+11) Diffrence between application, azure, frontdoor and traffic manager lb in azure.
+12) application, network, classic and gateway lb in aws.
+13) How LB know in which EC2 instance need to serve traffic.
+14) you host website in EC2 instance and that website is loading how you debug that.
+15) What netstate were do.
+16) How we know that particular application listern which port.
+17) Your application is not working what you do at server level.
+18) How you debug which pkg is currupt in server.
+19) you have server which is showing high cpu and high memory, how you can debug that issue.
+20) What is diffent between thread dump and heap dump.
+21) diffrence between kill -9  and kill -15.
+22) you have two services using same port in linux so does it is possible, and what error it throw.
+23) I want to ssh one of the server and it is give me connection refuse error what you do.
+24) I have one service and i want to check the open file for that service in linux.
+25) Have you create a file in linux.
+26) Does touch cmd create file.
+27) What is the diffrenct between public vpc and private vpc.
+28) What is the diffrenct between public ec2 and private ec2.
+29) I want to deploy some pkg in private subnet or vpc how i can do that?
+20) Diffrence between internet gateway and Nat gw.
+21) If i add nat gw so it is public subnet or private subnet.
+22) how nat gw work.
+23) you have LB, and load is coming on the server so how i can scale my ec2 instances.
+24) cloud watch have n numbers of metrices so how it know what was the memory and cpu metrics, how we know which particular metrics we need to watch.
+25) pods is continously restarting how you can reslove.
+26) your database is going to high cpu and memory how you can reslove this condition.
+27) Let suppose your data base taking 1000 req. per min. so how you can deal with this situation.
+28) In the datababase the number of write query if very high so how you can create architecture for that.
+29) let suppose you have a file which have username and ip details, you have to write a script i can choose particular user and they can ssh it.
