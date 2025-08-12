@@ -591,7 +591,7 @@ NTT DATA:
 15) If you have to patches any envrionment so how you can do.
 16) How you set-up patch face, and how you can set-up patches in aws or azure side, and make sure patches has been done on time to time.
 17) Have you set-up monitoring via cloud watch.
-18) Have you used cloud frame to debug the issue.
+18) Have you used CloudTrail to debug the issue.
 19) Aws backup service have you used.
 20) How will you manage the volume and what challenges you faces on k8s or docker part.
 21) Brifly explain k8s arch. and how you manage LB inside k8s cluster.
