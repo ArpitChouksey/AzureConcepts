@@ -571,3 +571,33 @@ ED TECH. PUNE:
 27) Let suppose your data base taking 1000 req. per min. so how you can deal with this situation.
 28) In the datababase the number of write query if very high so how you can create architecture for that.
 29) let suppose you have a file which have username and ip details, you have to write a script i can choose particular user and they can ssh it.
+
+NTT DATA:
+
+NTT DATA:
+
+1) You have EKS Cluster where 20 micro service running in EKS so you need to do cost optimization how you can do.
+2) What of the services have you work on in aws.
+3) Diff. between inbound and outbond endpoint in route53.
+4) Can you explain about s3 lifecycle.
+5) What kind of the access you provide to use fluently or influently.
+6) Retention period for this on azure blob and in s3 route.
+7) How you used terraform and did you write terraform or just you modify and do the thing.
+8) We have a code in github repro. and we need to deploy some lamda funtion how you proceed, can you explain whole approach.
+9) How will you manage your statefile.
+10) Say you have statefile setup how will you prevent inconvient changes in terraform, wither user level access and how you restrict that know one do unnecessary changes, share best practice.
+11) Can you restict the IAM side.
+12) Have you heard about elastic framework.
+13) How you work with multiple module, it will commited in git.
+14) Have you work on MySql so it is stand alone services or RDP.
+15) If you have to patches any envrionment so how you can do.
+16) How you set-up patch face, and how you can set-up patches in aws or azure side, and make sure patches has been done on time to time.
+17) Have you set-up monitoring via cloud watch.
+18) Have you used cloud frame to debug the issue.
+19) Aws backup service have you used.
+20) How will you manage the volume and what challenges you faces on k8s or docker part.
+21) Brifly explain k8s arch. and how you manage LB inside k8s cluster.
+22) Let suppose you got a incident and you need to debug that how you can deal with it.
+23) Have you heard about brancing stretagy.
+24) What is cherry pick in git.
+25) If i have a terraform script and when we run it and we need to push are code in prod. but it will take more time, so how we can redunce time complexity.
