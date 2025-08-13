@@ -599,3 +599,13 @@ NTT DATA:
 23) Have you heard about brancing stretagy.
 24) What is cherry pick in git.
 25) If i have a terraform script and when we run it and we need to push are code in prod. but it will take more time, so how we can redunce time complexity.
+
+InfoTrio:
+
+How you can deploy static content in azure blob.
+How can you deal with multiple code and send necessary data to kibana.
+Does we can check username and password in jenkins if i stored it into global credentials.
+How you can manage traffic in networking point of view.
+Let suppose you want to use EKS services to AKS service so how you can do.
+How you can set-up routing.
+How you can design HLD & LLD.
